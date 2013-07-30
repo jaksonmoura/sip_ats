@@ -1,27 +1,22 @@
 <%= form_for(@computer, :remote => true, :class => "edit_computer_#{@computer.id}") do |f| %>
 	<div class="fields">
 		<div class="ip">
-			<%= f.label :ip %>
 			<%= f.number_field :ip, :autofocus => true%>
 		</div>
 		<div  class="dpto">
-			<%= f.label :dpto_id %>
 			<%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}, :class => "computer_dpto_id_#{@computer.id}"%>
 		</div>
 		<div class="subdpto">
-			<%= f.label :subdpto_id %>
 			<%= select_tag :subdpto_id, {}, :disabled => true,  :class => "computer_subdpto_id_#{@computer.id}"%>
 		</div>
 		<div class="sort">
-			<%= f.label :sort %>
 			<%= f.text_field :sort %>
 		</div>
 		<div class="name">
-		<%= f.label :name %>
 		<%= f.text_field :name %>
 		</div>
 		<div class="actions">
-			<%= f.submit %>  
+			<%= f.submit  "Atualizar" %>  
 		</div>
 	</div>
 	<script type="text/javascript">

@@ -81,6 +81,6 @@ class SubdptosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subdpto_params
-      params.require(:subdpto).permit(:name, :dpto_id)
+      params.require(:subdpto).permit(:name, :dpto_id, :abbr)
     end
 end

@@ -4,7 +4,7 @@
 <div class="dptos_list">
 	<% @dptos.each do |dpto| %>
 	  <div class="dpto_item_<%= dpto.id %>">
-	    <p><%= dpto.name %></p>
+	    <p><%= dpto.abbr %> - <%= dpto.name %></p>
 	    <div class="actions">
 	      <%= link_to '+ Subdpto', new_dpto_subdpto_path(dpto)%>
 	      <%= link_to 'Editar', edit_dpto_path(dpto), :remote => true %>

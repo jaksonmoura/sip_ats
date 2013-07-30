@@ -6,18 +6,8 @@ class ComputersController < ApplicationController
   def index
     @computers = Computer.all
     @computer = Computer.new
-    # Load Dptos
-    @dptos = Dpto.all
-  end
-
-  # GET /computers/1
-  # GET /computers/1.json
-  def show
-  end
-
-  # GET /computers/new
-  def new
-    @computer = Computer.new
+    @dptos = Dpto.all # Load Dptos
+    @subdptos = Subdpto.all # Load Dptos
   end
 
   # GET /computers/1/edit

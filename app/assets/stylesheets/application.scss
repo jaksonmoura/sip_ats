@@ -6,20 +6,27 @@ body{
 	color: 333;
 }
 
-
 .computers_list{
 	float: left;
 	width: 100%;
-	display: 
 
-	form{
-		float: left;
+	thead{
 		width: 100%;
+		float: left;
+
+		th{
+			width: 160px;
+			text-align: center;
+		}
+		.ip{
+			width: 52px !important;
+		}
 	}
 
 	.fields{
 		float: left;
 		width: 100%;
+		cursor: pointer;
 
 		td{
 			padding: 5px;
@@ -27,15 +34,97 @@ body{
 			float: left;
 			background: #fff;
 			margin: 0 2px 0 0;
+			border:  1px solid #fff;
+			text-align: center;
 		}
 
 		.ip{
 			width: 40px;
-			text-align: center;
 		}
+
+		.actions{
+			display: none;
+			background: #ccc;
+		}
+
 	}
+
+	.fields:hover .actions{
+		display: inline;
+	}
+
+	.fields:hover{
+		opacity: .6;
+	}
+
+	.fields:nth-child(2n+1) .actions{
+		background: #ccc;
+	}
+
+	.fields:nth-child(2n+1):hover{
+		opacity: .6;
+	}
+
 	.fields:nth-child(2n+1) td{
+		padding: 5px;
+		width: 150px;
+		float: left;
 		background: #e0f1ff;
 		border: 1px solid #d8e7ed;
+	}
+	.fields:nth-child(2n+1) .ip{
+		width: 40px;
+		text-align: center;
+	}
+}
+
+.computers_list .edit_computer, #new_computer{
+	float: left;
+	width: 100%;
+
+	.fields{
+		background: yellow;
+	}
+
+	thead{
+		width: 100%;
+		float: left;
+
+		th{
+			float: left;
+			width: 160px;
+			text-align: center;
+		}
+		.ip{
+			width: 52px !important;
+		}
+	}
+
+	.fields div, .fields td{
+		float: left;
+		width: 150px;
+		padding: 5px;
+		margin-right: 4px;
+
+		input, select{
+			width: 100%;
+		}
+	}
+	.fields .ip{
+		width: 40px;
+		input{
+			width: 40px;
+		}
+	}
+	.fields .actions{
+		input{
+			width: 100px;
+		}
+	}
+}
+
+#new_computer{
+	.fields{
+		background: none;
 	}
 }

@@ -76,6 +76,6 @@ class DptosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dpto_params
-      params.require(:dpto).permit(:name)
+      params.require(:dpto).permit(:name, :abbr)
     end
 end

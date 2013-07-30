@@ -3,7 +3,7 @@
 <table class="computers_list">
   <thead>
     <tr>
-      <th>IP</th>
+      <th class="ip">IP</th>
       <th>Departamento</th>
       <th>Subdepartamento</th>
       <th>Tipo</th>
@@ -17,8 +17,16 @@
       <% @computers.each do |computer| %>
           <tr class="fields" id="computer_item_<%= computer.id %>">
             <td class="ip"><%= computer.ip %></td>
-            <td class="dpto"><%= computer.dpto_id %></td>
-            <td class="subdpto"><%= computer.subdpto_id %></td>
+            <% @dptos.each do |d| %>
+              <% if computer.dpto_id == d.id %>
+                <td class="dpto"><%= d.abbr %></td>  
+              <% end %>
+            <% end %>
+            <% @subdptos.each do |s| %>
+              <% if computer.subdpto_id == s.id %>
+                <td class="subdpto"><%= s.abbr %></td>  
+              <% end %>
+            <% end %>
             <td class="sort"><%= computer.sort %></td>
             <td class="name"><%= computer.name %></td>
             <td class="actions"><%= link_to 'Edit', edit_computer_path(computer), :remote => true %>

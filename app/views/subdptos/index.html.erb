@@ -4,7 +4,7 @@
 <div class="subdptos_list">
   <% @subdptos.each do |subdpto| %>
     <div class="subdpto_item_<%= subdpto.id %>">
-      <p><%= subdpto.name %></p>
+      <p><%= subdpto.abbr %> - <%= subdpto.name %></p>
       <div class="actions">
         <%= link_to 'Editar', edit_dpto_subdpto_path(:dpto, subdpto), :remote => true %>
         <%= link_to 'Remover', subdpto, method: :delete, data: { confirm: 'Tem certeza?' }, :remote => true %>
