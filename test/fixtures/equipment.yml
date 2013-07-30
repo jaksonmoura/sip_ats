@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dpto_id: 1
+  subdpto_id: 1
+  type: 
+
+two:
+  dpto_id: 1
+  subdpto_id: 1
+  type: 

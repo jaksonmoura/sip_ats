@@ -1,0 +1,55 @@
+<%= form_for(@computer, :remote => true) do |f| %>
+  <% if @computer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@computer.errors.count, "error") %> prohibited this computer from being saved:</h2>
+
+      <ul>
+      <% @computer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <table>
+    <thead>
+        <th>IP</th>
+        <th>Departamento</th>
+        <th>Subdepartamento</th>
+        <th>Tipo</th>
+        <th>Usuário</th>
+        <th></th>
+    </thead>
+    <td>
+      <%= f.number_field :ip, :autofocus => true%>
+    </td>
+    <td>
+      <%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}%>
+    </td>
+    <td>
+      <%= select_tag :subdpto_id, {}, :disabled => true, :id=>"computer_subdpto_id"%>
+    </td>
+    <td>
+      <%= f.text_field :sort %>
+    </td>
+    <td>
+      <%= f.text_field :name %>
+    </td>
+    <td class="actions">
+      <%= f.submit %>
+    </td>
+  </table>
+<% end %>
+<script type="text/javascript">
+jQuery(function($) {
+// when the #region_id field changes
+  $("#computer_dpto_id").change(function() {
+    // make a POST call and replace the content
+    var dpto = $('select#computer_dpto_id :selected').val();
+    if(dpto == "") dpto="0";
+    jQuery.get('/computers/get_subdptos/' + dpto, function(data){
+        $("#computer_subdpto_id").replaceWith(data);
+    })
+    return false;
+  });
+})
+</script>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @subdpto.name %>
+</p>
+
+<p>
+  <strong>Dpto:</strong>
+  <%= @subdpto.dpto_id %>
+</p>
+
+<%= link_to 'Edit', edit_subdpto_path(@subdpto) %> |
+<%= link_to 'Back', subdptos_path %>

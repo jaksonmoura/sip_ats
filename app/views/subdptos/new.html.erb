@@ -1,0 +1,17 @@
+<h1>New subdpto</h1>
+
+<%= render 'form' %>
+
+<div class="subdptos_list">
+	  <% @subdptos.each do |subdpto| %>
+		  <% if !subdpto.name.blank? %>
+		    <div class="subdpto_item_<%= subdpto.id %>">
+		      <p><%= subdpto.name %></p>
+		      <div class="actions">
+		        <%= link_to 'Editar', edit_dpto_subdpto_path(@dpto, subdpto), :remote => true %>
+		        <%= link_to 'Remover', [@dpto, subdpto], method: :delete, data: { confirm: 'Tem certeza?' }, :remote => true %>
+		      </div>
+		    </div>
+		  <% end %>
+  	<% end %>
+</div>

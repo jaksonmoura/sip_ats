@@ -1,0 +1,10 @@
+<%= form_for(@dpto, :remote => true, :class => "edit_form") do |f| %>
+    <%= f.text_field :name, :autofocus => true %>
+    <%= f.submit 'Salvar', :class => 'submit_me' %>
+	<input type="button" class="cancel_btn" value="Cancelar"/>
+<% end %>
+<script>
+	$(".cancel_btn").click(function(){
+		$("#edit_dpto_<%= @dpto.id %>").replaceWith('<div class="dpto_item_<%= @dpto.id %>"><p><%=j @dpto.name %></p><div class="actions"><%=j link_to "Editar", edit_dpto_path(@dpto), :remote => true %><%=j link_to "Remover", @dpto, method: :delete, data: { confirm: "Tem certeza?" }, :class => "remove_item" %></div></div>'); 
+	});
+</script>

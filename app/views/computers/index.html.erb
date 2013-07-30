@@ -1,0 +1,29 @@
+<h1>Listing computers</h1>
+<%= render 'form' %>
+<table class="computers_list">
+  <thead>
+    <tr>
+      <th>IP</th>
+      <th>Departamento</th>
+      <th>Subdepartamento</th>
+      <th>Tipo</th>
+      <th>Usuário</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @computers.each do |computer| %>
+          <tr class="fields" id="computer_item_<%= computer.id %>">
+            <td class="ip"><%= computer.ip %></td>
+            <td class="dpto"><%= computer.dpto_id %></td>
+            <td class="subdpto"><%= computer.subdpto_id %></td>
+            <td class="sort"><%= computer.sort %></td>
+            <td class="name"><%= computer.name %></td>
+            <td class="actions"><%= link_to 'Edit', edit_computer_path(computer), :remote => true %>
+            <%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true%></td>
+          </tr>
+      <% end %>
+  </tbody>
+</table>
