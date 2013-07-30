@@ -6,7 +6,7 @@ body{
 	color: 333;
 }
 
-.computers_list{
+.computers_list, .equipments_list{
 	float: left;
 	width: 100%;
 
@@ -36,6 +36,7 @@ body{
 			margin: 0 2px 0 0;
 			border:  1px solid #fff;
 			text-align: center;
+			height: 20px;
 		}
 
 		.ip{
@@ -72,19 +73,26 @@ body{
 		background: #e0f1ff;
 		border: 1px solid #d8e7ed;
 	}
+	.fields:nth-child(2n+1) td:first-child{
+		border-left-width: 0;
+	}
+	.fields:nth-child(2n+1) td:nth-last-child(2){
+		border-right-width: 0px;
+	}
+
+	.fields td:last-child, .fields:nth-child(2n+1) td:last-child{
+		border: 0px;
+	}
+
 	.fields:nth-child(2n+1) .ip{
 		width: 40px;
 		text-align: center;
 	}
 }
 
-.computers_list .edit_computer, #new_computer{
+.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment{
 	float: left;
 	width: 100%;
-
-	.fields{
-		background: yellow;
-	}
 
 	thead{
 		width: 100%;
@@ -123,7 +131,7 @@ body{
 	}
 }
 
-#new_computer{
+#new_computer, #new_equipment{
 	.fields{
 		background: none;
 	}

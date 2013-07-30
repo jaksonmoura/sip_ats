@@ -60,6 +60,13 @@ class ComputersController < ApplicationController
     end
   end
 
+  # Form select for subdptos
+  def get_subdptos
+    @dpto = Dpto.find(params[:id])
+    @subdptos = @dpto.subdptos.to_a
+    render :partial => "subdptos"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_computer

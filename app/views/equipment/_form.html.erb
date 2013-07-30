@@ -22,7 +22,7 @@
       <tr class="fields">
         <td class="ip"><%= f.number_field :ip, :autofocus => true%></td>
         <td class="dpto"><%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}%></td>
-        <td class="subdpot"><%= select_tag :subdpto_id, {}, :disabled => true, :id=>"equipment_subdpto_id"%></td>
+        <td class="subdpto"><%= select_tag :subdpto_id, {}, :disabled => true, :id=>"equipment_subdpto_id"%></td>
         <td class="sort"><%= f.text_field :sort %></td>
         <td class="actions"><%= f.submit %></td>
       </tr>
@@ -36,7 +36,7 @@ jQuery(function($) {
     // make a POST call and replace the content
     var dpto = $('select#equipment_dpto_id :selected').val();
     if(dpto == "") dpto="0";
-    jQuery.get('/data/get_subdptos/' + dpto, function(data){
+    jQuery.get('/equipment/get_subdptos/' + dpto, function(data){
         $("#equipment_subdpto_id").replaceWith(data);
     })
     return false;

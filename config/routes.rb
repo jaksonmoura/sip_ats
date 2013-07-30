@@ -10,7 +10,8 @@ Sip::Application.routes.draw do
     resources :subdptos
   end
 
-  get 'data/get_subdptos/:id', :controller=>'application', :action => 'get_subdptos'
+  get 'equipment/get_subdptos/:id', :controller=>'equipment', :action => 'get_subdptos'
+  get 'computers/get_subdptos/:id', :controller=>'computers', :action => 'get_subdptos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

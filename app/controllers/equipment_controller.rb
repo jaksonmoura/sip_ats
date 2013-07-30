@@ -7,6 +7,7 @@ class EquipmentController < ApplicationController
     @equipments = Equipment.all
     @equipment = Equipment.new
     @dptos = Dpto.all
+    @subdptos = Subdpto.all
   end
 
   # GET /equipment/1
@@ -21,6 +22,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment/1/edit
   def edit
+    @dptos = Dpto.all
   end
 
   # POST /equipment
@@ -30,9 +32,11 @@ class EquipmentController < ApplicationController
 
     respond_to do |format|
       if @equipment.save
+        format.js
         format.html { redirect_to @equipment, notice: 'Equipment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @equipment }
       else
+        format.js { render 'error' }
         format.html { render action: 'new' }
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
       end
@@ -44,9 +48,11 @@ class EquipmentController < ApplicationController
   def update
     respond_to do |format|
       if @equipment.update(equipment_params)
+        format.js { render 'update.js.erb'}
         format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
         format.json { head :no_content }
       else
+        format.js { render 'error' }
         format.html { render action: 'edit' }
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
       end
@@ -58,9 +64,17 @@ class EquipmentController < ApplicationController
   def destroy
     @equipment.destroy
     respond_to do |format|
+      format.js
       format.html { redirect_to equipment_index_url }
       format.json { head :no_content }
     end
+  end
+
+  # Form select for subdptos
+  def get_subdptos
+    @dpto = Dpto.find(params[:id])
+    @subdptos = @dpto.subdptos.to_a
+    render :partial => "subdptos"
   end
 
   private

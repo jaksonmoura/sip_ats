@@ -5,79 +5,84 @@ body {
   font-size: 14px;
   color: 333; }
 
-.computers_list {
+.computers_list, .equipments_list {
   float: left;
   width: 100%; }
-  .computers_list thead {
+  .computers_list thead, .equipments_list thead {
     width: 100%;
     float: left; }
-    .computers_list thead th {
+    .computers_list thead th, .equipments_list thead th {
       width: 160px;
       text-align: center; }
-    .computers_list thead .ip {
+    .computers_list thead .ip, .equipments_list thead .ip {
       width: 52px !important; }
-  .computers_list .fields {
+  .computers_list .fields, .equipments_list .fields {
     float: left;
     width: 100%;
     cursor: pointer; }
-    .computers_list .fields td {
+    .computers_list .fields td, .equipments_list .fields td {
       padding: 5px;
       width: 150px;
       float: left;
       background: #fff;
       margin: 0 2px 0 0;
       border: 1px solid #fff;
-      text-align: center; }
-    .computers_list .fields .ip {
+      text-align: center;
+      height: 20px; }
+    .computers_list .fields .ip, .equipments_list .fields .ip {
       width: 40px; }
-    .computers_list .fields .actions {
+    .computers_list .fields .actions, .equipments_list .fields .actions {
       display: none;
       background: #ccc; }
-  .computers_list .fields:hover .actions {
+  .computers_list .fields:hover .actions, .equipments_list .fields:hover .actions {
     display: inline; }
-  .computers_list .fields:hover {
+  .computers_list .fields:hover, .equipments_list .fields:hover {
     opacity: .6; }
-  .computers_list .fields:nth-child(2n+1) .actions {
+  .computers_list .fields:nth-child(2n+1) .actions, .equipments_list .fields:nth-child(2n+1) .actions {
     background: #ccc; }
-  .computers_list .fields:nth-child(2n+1):hover {
+  .computers_list .fields:nth-child(2n+1):hover, .equipments_list .fields:nth-child(2n+1):hover {
     opacity: .6; }
-  .computers_list .fields:nth-child(2n+1) td {
+  .computers_list .fields:nth-child(2n+1) td, .equipments_list .fields:nth-child(2n+1) td {
     padding: 5px;
     width: 150px;
     float: left;
     background: #e0f1ff;
     border: 1px solid #d8e7ed; }
-  .computers_list .fields:nth-child(2n+1) .ip {
+  .computers_list .fields:nth-child(2n+1) td:first-child, .equipments_list .fields:nth-child(2n+1) td:first-child {
+    border-left-width: 0; }
+  .computers_list .fields:nth-child(2n+1) td:nth-last-child(2), .equipments_list .fields:nth-child(2n+1) td:nth-last-child(2) {
+    border-right-width: 0px; }
+  .computers_list .fields td:last-child, .computers_list .fields:nth-child(2n+1) td:last-child, .equipments_list .fields td:last-child, .equipments_list .fields:nth-child(2n+1) td:last-child {
+    border: 0px; }
+  .computers_list .fields:nth-child(2n+1) .ip, .equipments_list .fields:nth-child(2n+1) .ip {
     width: 40px;
     text-align: center; }
 
-.computers_list .edit_computer, #new_computer {
+.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment {
   float: left;
   width: 100%; }
-  .computers_list .edit_computer .fields, #new_computer .fields {
-    background: yellow; }
-  .computers_list .edit_computer thead, #new_computer thead {
+  .computers_list thead, .edit_computer thead, #new_computer thead, .equipments_list thead, .edit_equipment thead, #new_equipment thead {
     width: 100%;
     float: left; }
-    .computers_list .edit_computer thead th, #new_computer thead th {
+    .computers_list thead th, .edit_computer thead th, #new_computer thead th, .equipments_list thead th, .edit_equipment thead th, #new_equipment thead th {
       float: left;
       width: 160px;
       text-align: center; }
-    .computers_list .edit_computer thead .ip, #new_computer thead .ip {
+    .computers_list thead .ip, .edit_computer thead .ip, #new_computer thead .ip, .equipments_list thead .ip, .edit_equipment thead .ip, #new_equipment thead .ip {
       width: 52px !important; }
-  .computers_list .edit_computer .fields div, .computers_list .edit_computer .fields td, #new_computer .fields div, #new_computer .fields td {
+  .computers_list .fields div, .computers_list .fields td, .edit_computer .fields div, .edit_computer .fields td, #new_computer .fields div, #new_computer .fields td, .equipments_list .fields div, .equipments_list .fields td, .edit_equipment .fields div, .edit_equipment .fields td, #new_equipment .fields div, #new_equipment .fields td {
     float: left;
     width: 150px;
     padding: 5px;
     margin-right: 4px; }
-    .computers_list .edit_computer .fields div input, .computers_list .edit_computer .fields div select, .computers_list .edit_computer .fields td input, .computers_list .edit_computer .fields td select, #new_computer .fields div input, #new_computer .fields div select, #new_computer .fields td input, #new_computer .fields td select {
+    .computers_list .fields div input, .computers_list .fields div select, .computers_list .fields td input, .computers_list .fields td select, .edit_computer .fields div input, .edit_computer .fields div select, .edit_computer .fields td input, .edit_computer .fields td select, #new_computer .fields div input, #new_computer .fields div select, #new_computer .fields td input, #new_computer .fields td select, .equipments_list .fields div input, .equipments_list .fields div select, .equipments_list .fields td input, .equipments_list .fields td select, .edit_equipment .fields div input, .edit_equipment .fields div select, .edit_equipment .fields td input, .edit_equipment .fields td select, #new_equipment .fields div input, #new_equipment .fields div select, #new_equipment .fields td input, #new_equipment .fields td select {
       width: 100%; }
-  .computers_list .edit_computer .fields .ip, #new_computer .fields .ip {
+  .computers_list .fields .ip, .edit_computer .fields .ip, #new_computer .fields .ip, .equipments_list .fields .ip, .edit_equipment .fields .ip, #new_equipment .fields .ip {
     width: 40px; }
-    .computers_list .edit_computer .fields .ip input, #new_computer .fields .ip input {
+    .computers_list .fields .ip input, .edit_computer .fields .ip input, #new_computer .fields .ip input, .equipments_list .fields .ip input, .edit_equipment .fields .ip input, #new_equipment .fields .ip input {
       width: 40px; }
-  .computers_list .edit_computer .fields .actions input, #new_computer .fields .actions input {
+  .computers_list .fields .actions input, .edit_computer .fields .actions input, #new_computer .fields .actions input, .equipments_list .fields .actions input, .edit_equipment .fields .actions input, #new_equipment .fields .actions input {
     width: 100px; }
 
-#new_computer .fields {
+#new_computer .fields, #new_equipment .fields {
   background: none; }

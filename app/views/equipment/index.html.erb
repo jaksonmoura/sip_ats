@@ -17,14 +17,10 @@
           <tr class="fields" id="equipment_item_<%= equipment.id %>">
             <td class="ip"><%= equipment.ip %></td>
             <% @dptos.each do |d| %>
-              <% if equipment.dpto_id == d.id %>
-                <td class="dpto"><%= d.abbr %></td>  
-              <% end %>
+              <td class="dpto"><%= d.abbr if equipment.dpto_id == d.id %></td>  
             <% end %>
             <% @subdptos.each do |s| %>
-              <% if equipment.subdpto_id == s.id %>
-                <td class="subdpto"><%= s.abbr %></td>  
-              <% end %>
+              <td class="subdpto"><%= s.abbr if equipment.subdpto_id == s.id %></td>  
             <% end %>
             <td class="sort"><%= equipment.sort %></td>
             <td class="actions"><%= link_to 'Edit', edit_equipment_path(equipment), :remote => true %>

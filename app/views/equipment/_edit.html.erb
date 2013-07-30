@@ -12,9 +12,6 @@
 		<div class="sort">
 			<%= f.text_field :sort %>
 		</div>
-		<div class="name">
-		<%= f.text_field :name %>
-		</div>
 		<div class="actions">
 			<%= f.submit  "Atualizar" %>  
 		</div>
@@ -26,7 +23,7 @@
 			// make a POST call and replace the content
 			var dpto = $('.equipment_dpto_id_<%= @equipment.id %> :selected').val();
 			if(dpto == "") dpto="0";
-			jQuery.get('/equipments/get_subdptos/' + dpto, function(data){
+			jQuery.get('/equipment/get_subdptos/' + dpto, function(data){
 					$(".equipment_subdpto_id_<%= @equipment.id %>").replaceWith(data);
 			})
 			return false;
