@@ -1,4 +1,4 @@
-<%= form_for(@equipment) do |f| %>
+<%= form_for(@equipment, :remote => true) do |f| %>
   <% if @equipment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
@@ -10,20 +10,36 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :dpto_id %><br>
-    <%= f.number_field :dpto_id %>
-  </div>
-  <div class="field">
-    <%= f.label :subdpto_id %><br>
-    <%= f.number_field :subdpto_id %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table>
+    <thead>
+        <th class="ip">IP</th>
+        <th>Departamento</th>
+        <th>Subdepartamento</th>
+        <th>Tipo</th>
+        <th></th>
+    </thead>
+    <tbody>
+      <tr class="fields">
+        <td class="ip"><%= f.number_field :ip, :autofocus => true%></td>
+        <td class="dpto"><%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}%></td>
+        <td class="subdpot"><%= select_tag :subdpto_id, {}, :disabled => true, :id=>"equipment_subdpto_id"%></td>
+        <td class="sort"><%= f.text_field :sort %></td>
+        <td class="actions"><%= f.submit %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
+<script type="text/javascript">
+jQuery(function($) {
+// when the #region_id field changes
+  $("#equipment_dpto_id").change(function() {
+    // make a POST call and replace the content
+    var dpto = $('select#equipment_dpto_id :selected').val();
+    if(dpto == "") dpto="0";
+    jQuery.get('/data/get_subdptos/' + dpto, function(data){
+        $("#equipment_subdpto_id").replaceWith(data);
+    })
+    return false;
+  });
+})
+</script>

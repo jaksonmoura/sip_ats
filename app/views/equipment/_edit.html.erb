@@ -1,0 +1,36 @@
+<%= form_for(@equipment, :remote => true, :class => "edit_equipment_#{@equipment.id}") do |f| %>
+	<div class="fields">
+		<div class="ip">
+			<%= f.number_field :ip, :autofocus => true%>
+		</div>
+		<div  class="dpto">
+			<%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}, :class => "equipment_dpto_id_#{@equipment.id}"%>
+		</div>
+		<div class="subdpto">
+			<%= select_tag :subdpto_id, {}, :disabled => true,  :class => "equipment_subdpto_id_#{@equipment.id}"%>
+		</div>
+		<div class="sort">
+			<%= f.text_field :sort %>
+		</div>
+		<div class="name">
+		<%= f.text_field :name %>
+		</div>
+		<div class="actions">
+			<%= f.submit  "Atualizar" %>  
+		</div>
+	</div>
+	<script type="text/javascript">
+	jQuery(function($) {
+	// when the #region_id field changes
+		$(".equipment_dpto_id_<%= @equipment.id %>").change(function() {
+			// make a POST call and replace the content
+			var dpto = $('.equipment_dpto_id_<%= @equipment.id %> :selected').val();
+			if(dpto == "") dpto="0";
+			jQuery.get('/equipments/get_subdptos/' + dpto, function(data){
+					$(".equipment_subdpto_id_<%= @equipment.id %>").replaceWith(data);
+			})
+			return false;
+		});
+	})
+	</script>
+<% end %>

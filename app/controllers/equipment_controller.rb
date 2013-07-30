@@ -4,7 +4,9 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    @equipments = Equipment.all
+    @equipment = Equipment.new
+    @dptos = Dpto.all
   end
 
   # GET /equipment/1

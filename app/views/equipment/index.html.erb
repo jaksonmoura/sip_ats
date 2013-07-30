@@ -1,31 +1,35 @@
-<h1>Listing equipment</h1>
-
-<table>
+<h1>Listing equipments</h1>
+<%= render 'form' %>
+<table class="equipments_list">
   <thead>
     <tr>
-      <th>Dpto</th>
-      <th>Subdpto</th>
-      <th>Type</th>
-      <th></th>
+      <th class="ip">IP</th>
+      <th>Departamento</th>
+      <th>Subdepartamento</th>
+      <th>Tipo</th>
       <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @equipment.each do |equipment| %>
-      <tr>
-        <td><%= equipment.dpto_id %></td>
-        <td><%= equipment.subdpto_id %></td>
-        <td><%= equipment.type %></td>
-        <td><%= link_to 'Show', equipment %></td>
-        <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
-        <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% @equipments.each do |equipment| %>
+          <tr class="fields" id="equipment_item_<%= equipment.id %>">
+            <td class="ip"><%= equipment.ip %></td>
+            <% @dptos.each do |d| %>
+              <% if equipment.dpto_id == d.id %>
+                <td class="dpto"><%= d.abbr %></td>  
+              <% end %>
+            <% end %>
+            <% @subdptos.each do |s| %>
+              <% if equipment.subdpto_id == s.id %>
+                <td class="subdpto"><%= s.abbr %></td>  
+              <% end %>
+            <% end %>
+            <td class="sort"><%= equipment.sort %></td>
+            <td class="actions"><%= link_to 'Edit', edit_equipment_path(equipment), :remote => true %>
+            <%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true%></td>
+          </tr>
+      <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Equipment', new_equipment_path %>

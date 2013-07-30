@@ -2,18 +2,23 @@
 
 <p>
   <strong>Dpto:</strong>
-  <%= @equipment.dpto_id %>
+  <%= @computer.dpto_id %>
 </p>
 
 <p>
   <strong>Subdpto:</strong>
-  <%= @equipment.subdpto_id %>
+  <%= @computer.subdpto_id %>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @equipment.type %>
+  <%= @computer.sort %>
 </p>
 
-<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
-<%= link_to 'Back', equipment_index_path %>
+<p>
+  <strong>Name:</strong>
+  <%= @computer.name %>
+</p>
+
+<%= link_to 'Edit', edit_computer_path(@computer) %> |
+<%= link_to 'Back', computers_path %>
