@@ -287,27 +287,30 @@ footer{
 	.main_content{
 		width: 100%;
 		margin: 0 auto;
+		padding: 0;
 		text-align: center;
 	}
 }
 
 .home_links{
-	width: 100%;
-	margin: 0 0 0 20px;
+	margin: 0 auto;
+	padding: 0;
 	text-align: center;
 	li{
-		display: inline;
+		display: inline-block;
+		width: 130px;
+		margin: 0 35px 10px 0;
 	}
 	a{
+		clear: both;
+		display: inline-block;
 		text-decoration: none;
 		color: #fff;
+		width: 100%;
 		background: $s_blue;
 		border-bottom: 4px solid $p_blue;
-		width: 150px;
 		padding: 10px 15px;
-		float: left;
 		text-align: center;
-		margin: 0 10px 10px 0;
 		border-radius: 1px;
 	}
 	a:hover{

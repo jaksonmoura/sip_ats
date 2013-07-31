@@ -186,24 +186,27 @@ footer {
   .home_container .main_content {
     width: 100%;
     margin: 0 auto;
+    padding: 0;
     text-align: center; }
 
 .home_links {
-  width: 100%;
-  margin: 0 0 0 20px;
+  margin: 0 auto;
+  padding: 0;
   text-align: center; }
   .home_links li {
-    display: inline; }
+    display: inline-block;
+    width: 130px;
+    margin: 0 35px 10px 0; }
   .home_links a {
+    clear: both;
+    display: inline-block;
     text-decoration: none;
     color: #fff;
+    width: 100%;
     background: #3f92d2;
     border-bottom: 4px solid #0b61a4;
-    width: 150px;
     padding: 10px 15px;
-    float: left;
     text-align: center;
-    margin: 0 10px 10px 0;
     border-radius: 1px; }
   .home_links a:hover {
     background: #5aa1db; }
