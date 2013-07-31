@@ -9,7 +9,6 @@
       <th>Tipo</th>
       <th>Usuário</th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -18,14 +17,10 @@
           <tr class="fields" id="computer_item_<%= computer.id %>">
             <td class="ip"><%= computer.ip %></td>
             <% @dptos.each do |d| %>
-              <% if computer.dpto_id == d.id %>
-                <td class="dpto"><%= d.abbr %></td>  
-              <% end %>
+              <td class="dpto"><%= d.abbr if computer.dpto_id == d.id %></td>  
             <% end %>
             <% @subdptos.each do |s| %>
-              <% if computer.subdpto_id == s.id %>
-                <td class="subdpto"><%= s.abbr %></td>  
-              <% end %>
+              <td class="subdpto"><%= s.abbr if computer.subdpto_id == s.id %></td>  
             <% end %>
             <td class="sort"><%= computer.sort %></td>
             <td class="name"><%= computer.name %></td>

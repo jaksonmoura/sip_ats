@@ -13,16 +13,19 @@ class ComputersController < ApplicationController
   # GET /computers/1/edit
   def edit
     @dptos = Dpto.all
+    @subdptos = Subdpto.all
   end
 
   # POST /computers
   # POST /computers.json
   def create
     @computer = Computer.new(computer_params)
+    @dptos = Dpto.all
+    @subdptos = Subdpto.all
 
     respond_to do |format|
       if @computer.save
-        format.js { render 'update.js.erb'}
+        format.js
         format.html { redirect_to @computer, notice: 'Computer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @computer }
       else
@@ -36,6 +39,8 @@ class ComputersController < ApplicationController
   # PATCH/PUT /computers/1
   # PATCH/PUT /computers/1.json
   def update
+    @dptos = Dpto.all
+    @subdptos = Subdpto.all
     respond_to do |format|
       if @computer.update(computer_params)
         format.js

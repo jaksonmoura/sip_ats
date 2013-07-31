@@ -13,7 +13,9 @@
 			<%= f.text_field :sort %>
 		</div>
 		<div class="actions">
-			<%= f.submit  "Atualizar" %>  
+			<%= f.submit  "Atualizar" %>
+			<%= @old_equip.dpto_id %>
+			<input type="button" class="cancel_btn" value="Cancelar"/>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -27,6 +29,9 @@
 					$(".equipment_subdpto_id_<%= @equipment.id %>").replaceWith(data);
 			})
 			return false;
+		});
+		$(".cancel_btn").click(function(){
+			$('#edit_equipment_<%= @equipment.id %>').replaceWith('<tr class="fields" id="equipment_item_<%= @equipment.id %>"><td class="ip"><%= @equipment.ip %></td><% @dptos.each do |d| %><td><%=j d.abbr if @equipment.dpto_id == d.id %></td>  <% end %><% @subdptos.each do |s| %><td><%=j s.abbr if @equipment.subdpto_id == s.id %></td>  <% end %><td><%= @equipment.sort %></td><td class="actions"><%=j link_to "Edit", edit_equipment_path(@equipment), :remote => true %><%=j link_to "Destroy", @equipment, method: :delete, data: { confirm: "Tem certeza?" }, :remote => true %></td></tr>');
 		});
 	})
 	</script>

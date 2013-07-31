@@ -1,7 +1,6 @@
-<h1>SiP - ATS</h1>
-<ul>
-	<li><a href="/dptos">Departamentos</a></li>
-	<li><a href="/equipment">Impressoras</a></li>
-	<li><a href="/computers">Computadores</a></li>
-	<li><a href="/reports">Relatórios</a></li>
+<ul class="home_links">
+	<li class="dptos"><a href="/dptos">Departamentos</a></li>
+	<li class="equipments"><a href="/equipment">Impressoras <%= "(#{@equipments})" if !@equipments.blank? %></a></li>
+	<li class="computers"><a href="/computers">Computadores <%= "(#{@computers})" if !@computers.blank? %></a></li>
+	<li class="reports"><a href="/reports">Relatórios</a></li>
 </ul>

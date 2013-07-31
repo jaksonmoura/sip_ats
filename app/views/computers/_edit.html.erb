@@ -17,6 +17,7 @@
 		</div>
 		<div class="actions">
 			<%= f.submit  "Atualizar" %>  
+			<input type="button" class="cancel_btn" value="Cancelar"/>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -30,6 +31,9 @@
 					$(".computer_subdpto_id_<%= @computer.id %>").replaceWith(data);
 			})
 			return false;
+		});
+		$(".cancel_btn").click(function(){
+			$('#edit_computer_<%= @computer.id %>').replaceWith('<tr class="fields" id="computer_item_<%= @computer.id %>"><td class="ip"><%= @computer.ip %></td><% @dptos.each do |d| %><td><%=j d.abbr if @computer.dpto_id == d.id %></td>  <% end %><% @subdptos.each do |s| %><td><%=j s.abbr if @computer.subdpto_id == s.id %></td>  <% end %><td><%= @computer.sort %></td><td><%= @computer.name %></td><td class="actions"><%=j link_to "Edit", edit_computer_path(@computer), :remote => true %><%=j link_to "Destroy", @computer, method: :delete, data: { confirm: "Tem certeza?" }, :remote => true %></td></tr>');
 		});
 	})
 	</script>

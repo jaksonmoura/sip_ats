@@ -23,12 +23,15 @@ class EquipmentController < ApplicationController
   # GET /equipment/1/edit
   def edit
     @dptos = Dpto.all
+    @subdptos = Subdpto.all
   end
 
   # POST /equipment
   # POST /equipment.json
   def create
     @equipment = Equipment.new(equipment_params)
+    @dptos = Dpto.all
+    @subdptos = Subdpto.all
 
     respond_to do |format|
       if @equipment.save
@@ -46,6 +49,8 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
+    @dptos = Dpto.all
+    @subdptos = Subdpto.all
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.js { render 'update.js.erb'}
