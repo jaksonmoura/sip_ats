@@ -1,4 +1,4 @@
-<h1>Listing equipments</h1>
+<h1>Equipamentos</h1>
 <%= render 'form' %>
 <table class="equipments_list">
   <thead>
@@ -7,7 +7,6 @@
       <th>Departamento</th>
       <th>Subdepartamento</th>
       <th>Tipo</th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,8 +21,8 @@
               <td class="subdpto"><%= s.abbr if equipment.subdpto_id == s.id %></td>  
             <% end %>
             <td class="sort"><%= equipment.sort %></td>
-            <td class="actions"><%= link_to 'Edit', edit_equipment_path(equipment), :remote => true %>
-            <%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true%></td>
+            <td class="actions"><%= link_to image_tag('edit.png'), edit_equipment_path(equipment), :remote => true, :title => "Editar" %>
+            <%= link_to image_tag('delete.png'), equipment, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :title => "Deletar"%>
           </tr>
       <% end %>
   </tbody>

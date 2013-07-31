@@ -16,8 +16,8 @@
 		<%= f.text_field :name %>
 		</div>
 		<div class="actions">
-			<%= f.submit  "Atualizar" %>  
-			<input type="button" class="cancel_btn" value="Cancelar"/>
+			<%= link_to image_tag('save.png'), "#submit_form", :title => "Salvar", :class=> "submit_form", :remote => true%>
+			<%= link_to image_tag('delete.png'), "#cancel_btn", :title => "Cancelar", :class=> "cancel_btn", :remote => true %>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -32,8 +32,18 @@
 			})
 			return false;
 		});
+		// Save on enter pressed
+		$('#edit_computer_<%= @computer.id %> input').keypress(function(e){
+			if (e.which == 13) {
+				$('#edit_computer_<%= @computer.id %>').submit();
+			}
+		});
+		// Save on save button clicked
+		$('.submit_form').click(function(){
+		    $('#edit_computer_<%= @computer.id %>').submit();
+		});
 		$(".cancel_btn").click(function(){
-			$('#edit_computer_<%= @computer.id %>').replaceWith('<tr class="fields" id="computer_item_<%= @computer.id %>"><td class="ip"><%= @computer.ip %></td><% @dptos.each do |d| %><td><%=j d.abbr if @computer.dpto_id == d.id %></td>  <% end %><% @subdptos.each do |s| %><td><%=j s.abbr if @computer.subdpto_id == s.id %></td>  <% end %><td><%= @computer.sort %></td><td><%= @computer.name %></td><td class="actions"><%=j link_to "Edit", edit_computer_path(@computer), :remote => true %><%=j link_to "Destroy", @computer, method: :delete, data: { confirm: "Tem certeza?" }, :remote => true %></td></tr>');
+			$('#edit_computer_<%= @computer.id %>').replaceWith('<tr class="fields" id="computer_item_<%= @computer.id %>"><td class="ip"><%= @computer.ip %></td><% @dptos.each do |d| %><td><%=j d.abbr if @computer.dpto_id == d.id %></td>  <% end %><% @subdptos.each do |s| %><td><%=j s.abbr if @computer.subdpto_id == s.id %></td>  <% end %><td><%= @computer.sort %></td><td><%= @computer.name %></td><td class="actions"><%=j link_to image_tag("edit.png"), edit_computer_path(@computer), :remote => true, :title => "Editar" %><%=j link_to image_tag("delete.png"), @computer, method: :delete, data: { confirm: "Are you sure?" }, :remote => true, :title => "Deletar"%></tr>');
 		});
 	})
 	</script>

@@ -1,4 +1,4 @@
-<h1>Listing computers</h1>
+<h1>Computadores</h1>
 <%= render 'form' %>
 <table class="computers_list">
   <thead>
@@ -8,7 +8,6 @@
       <th>Subdepartamento</th>
       <th>Tipo</th>
       <th>Usuário</th>
-      <th></th>
     </tr>
   </thead>
 
@@ -24,8 +23,8 @@
             <% end %>
             <td class="sort"><%= computer.sort %></td>
             <td class="name"><%= computer.name %></td>
-            <td class="actions"><%= link_to 'Edit', edit_computer_path(computer), :remote => true %>
-            <%= link_to 'Destroy', computer, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true%></td>
+            <td class="actions"><%= link_to image_tag('edit.png'), edit_computer_path(computer), :remote => true, :title => "Editar" %>
+            <%= link_to image_tag('delete.png'), computer, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :title => "Deletar"%></td>
           </tr>
       <% end %>
   </tbody>

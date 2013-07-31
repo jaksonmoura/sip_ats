@@ -85,18 +85,31 @@ footer{
 //  Tables
 .computers_list, .equipments_list{
 	float: left;
-	width: 50%;
+	padding: 0;
 
 	thead{
-		width: 60%;
+		width: 100%;
 		float: left;
 
 		th{
-			width: 160px;
+			width: 150px;
 			text-align: center;
+			float: left;
+			background:  $p_blue;
+			color: #fff;
+			padding: 7px 0;
+			margin: 0 0 -10px 0;
+		}
+
+		th:first-child{
+			border-radius: 3px 0 0 0;
+		}
+
+		th:last-child{
+			border-radius: 0 3px 0 0;
 		}
 		.ip{
-			width: 52px !important;
+			width: 42px !important;
 		}
 	}
 
@@ -107,11 +120,11 @@ footer{
 
 		td{
 			padding: 5px;
-			width: 165px;
+			width: 150px;
 			float: left;
 			background: #fff;
-			margin: 0 2px 0 0;
-			border:  1px solid #fff;
+			// margin: 0 2px 0 0;
+			// border:  1px solid #fff;
 			text-align: center;
 			height: 20px;
 		}
@@ -120,27 +133,44 @@ footer{
 			width: 40px;
 		}
 
-		.actions{
-			display: none;
-			background: $t_gray;
+	}
+
+	.fields td{
+		border-right: 1px solid #ccc;
+	}
+
+	.fields td:nth-last-child(2){
+		border: none;
+	}
+
+	.fields:hover .actions, .fields:nth-child(2n+1):hover .actions{
+		display: inherit;
+	}
+
+	.fields .actions, .fields:nth-child(2n+1) .actions{
+		float: right;
+		position: inherit;
+		margin: -30px -50px 0 0;
+		padding: 3px 0;
+		width: 60px;
+		border-radius: 5px;
+		border: 1px solid $p_yellow !important;
+		box-shadow: 1px 1px 3px #999;
+		display: none;
+		background: $t_yellow;
+
+		a{
+			float: left;
+			margin: 2px 0 0 9px;
 		}
-
-	}
-
-	.fields:hover .actions{
-		display: inline;
-	}
-
-	.fields:nth-child(2n+1) .actions{
-		background: $t_gray;
 	}
 
 	.fields:nth-child(2n+1) td{
 		padding: 5px;
-		width: 151px;
+		width: 150px;
 		float: left;
 		background: $t_blue;
-		border: 1px solid #d8e7ed;
+		// border: 1px solid #d8e7ed;
 	}
 	.fields:nth-child(2n+1) td:first-child{
 		border-left-width: 0;
@@ -159,12 +189,23 @@ footer{
 	}
 }
 
-.edit_computer, #new_computer, .edit_equipment, #new_equipment{
-	width: 100%;
+.edit_computer, .edit_equipment{
+	.actions{
+		display: inherit !important;
+	}
 }
 
-.computers_list, .equipments_list{
-	width: 80%;
+.edit_computer, #new_computer, .edit_equipment, #new_equipment{
+	width: 100%;
+	padding: 0;
+}
+
+.equipments_list{
+	width: 600px;
+}
+
+.computers_list{
+	width: 780px;
 }
 
 .computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment{
@@ -176,25 +217,27 @@ footer{
 
 		th{
 			float: left;
-			width: 164px;
+			width: 162px;
 			text-align: center;
+			margin: 0 0 -6px -1px;
 		}
 		.ip{
-			width: 52px !important;
+			width: 48px !important;
 		}
 	}
 
 	.fields div, .fields td{
 		float: left;
-		width: 151px;
+		width: 150px;
 		padding: 5px;
-		margin-right: 4px;
+		// margin-right: 4px;
 
 		input, select{
 			width: 100%;
 			text-align: center;
 		}
 	}
+
 	.fields .ip{
 		width: 40px;
 		input{
