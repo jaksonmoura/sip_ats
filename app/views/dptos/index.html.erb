@@ -1,15 +1,17 @@
 <h1>Departamentos</h1>
 
 <%= render 'form' %>
-<div class="dptos_list">
-	<% @dptos.each do |dpto| %>
-	  <div class="dpto_item_<%= dpto.id %>">
-	    <p><%= dpto.abbr %> - <%= dpto.name %></p>
-	    <div class="actions">
-	      <%= link_to '+ Subdpto', new_dpto_subdpto_path(dpto)%>
-	      <%= link_to 'Editar', edit_dpto_path(dpto), :remote => true %>
-	      <%= link_to 'Remover', dpto, method: :delete, data: { confirm: 'Tem certeza?' }, :remote => true %>
-	    </div>
-	  </div>
-	<% end %>
-</div>
+<table class="dptos_list">
+	<tbody>
+		<% @dptos.each do |dpto| %>
+		  <tr class="fields" id="dpto_item_<%= dpto.id %>">
+		    <td><%= dpto.abbr %> - <%= dpto.name %></td>
+		    <td class="actions">
+		      <%= link_to '+ Subdpto', new_dpto_subdpto_path(dpto)%>
+		      <%= link_to 'Editar', edit_dpto_path(dpto), :remote => true %>
+		      <%= link_to 'Remover', dpto, method: :delete, data: { confirm: 'Tem certeza?' }, :remote => true %>
+		    </td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>

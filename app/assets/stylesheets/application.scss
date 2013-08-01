@@ -11,6 +11,11 @@ $s_gray: #cccccc;
 $t_gray: #f1f1f1;
 
 
+@font-face {
+  font-family: "Open Sans";
+  src: url('OpenSans-Regular.ttf'), url('OpenSans-Bold.ttf'), url('OpenSans-BoldItalic.ttf'), url('OpenSans-Italic.ttf'), url('OpenSans-Light.ttf'), url('OpenSans-LightItalic.ttf'), url('OpenSans-SemiBold.ttf'), url('OpenSans-SemiBoldItalic.ttf');
+}
+
 // Main content
 
 body, html{
@@ -83,7 +88,7 @@ footer{
 }
 
 //  Tables
-.computers_list, .equipments_list{
+.computers_list, .equipments_list, .dptos_list, .subdptos_list{
 	float: left;
 	padding: 0;
 
@@ -195,7 +200,7 @@ footer{
 	}
 }
 
-.edit_computer, #new_computer, .edit_equipment, #new_equipment{
+.edit_computer, #new_computer, .edit_equipment, #new_equipment, .edit_dptos, #new_dpto, .edit_subdptos, #new_subdpto{
 	width: 100%;
 	padding: 0;
 }
@@ -208,7 +213,7 @@ footer{
 	width: 780px;
 }
 
-.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment{
+.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment, .dptos_list, .subdptos_list, .edit_dptos, #new_dpto, .edit_subdptos, #new_subdpto{
 	float: left;
 
 	thead{
