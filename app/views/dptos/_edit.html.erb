@@ -1,11 +1,25 @@
-<%= form_for(@dpto, :remote => true, :class => "edit_form") do |f| %>
-    <%= f.text_field :name, :autofocus => true %>
-    <%= f.text_field :abbr %>
-    <%= f.submit 'Salvar', :class => 'submit_me' %>
-	<input type="button" class="cancel_btn" value="Cancelar"/>
+<%= form_for(@dpto, :remote => true, :class => "edit_dpto_#{@dpto.id}") do |f| %>
+	<div class="fields">
+	    <div class="name"><%= f.text_field :name, :autofocus => true %></div>
+	    <div class="abbr"><%= f.text_field :abbr %></div>
+	    <div class="actions">
+		    <%= link_to image_tag('save.png'), "#submit_form", :title => "Salvar", :class=> "submit_form", :remote => true%>
+		    <%= link_to image_tag('delete.png'), "#cancel_btn", :title => "Cancelar", :class=> "cancel_btn", :remote => true %>
+	    </div>
+    </div>
+    <script>
+    	// Save on enter pressed
+    	$('#edit_dpto_<%= @dpto.id %> input').keypress(function(e){
+    		if (e.which == 13) {
+    			$('#edit_dpto_<%= @dpto.id %>').submit();
+    		}
+    	});
+    	// Save on save button clicked
+    	$('.submit_form').click(function(){
+    	    $('#edit_dpto_<%= @dpto.id %>').submit();
+    	});
+    	$(".cancel_btn").click(function(){
+    		$("#edit_dpto_<%= @dpto.id %>").replaceWith('<tr class="fields" id="dpto_item_<%= @dpto.id %>"><td><%= @dpto.name %></td><td><%= @dpto.abbr %></td><td class="actions"><%=j link_to image_tag("subdptos.png"), new_dpto_subdpto_path(@dpto), :title => "+ Subdpto"%><%=j link_to image_tag("edit.png"), edit_dpto_path(@dpto), :remote => true, :title => "Editar" %><%=j link_to image_tag("delete.png"), @dpto, method: :delete, data: { confirm: "Tem certeza?" }, :remote => true, :title => "Deletar" %></td></tr>');
+    	});
+    </script>
 <% end %>
-<script>
-	$(".cancel_btn").click(function(){
-		$("#edit_dpto_<%= @dpto.id %>").replaceWith('<div class="dpto_item_<%= @dpto.id %>"><p><%=j @dpto.abbr %></p><div class="actions"><%=j link_to "Editar", edit_dpto_path(@dpto), :remote => true %><%=j link_to "Remover", @dpto, method: :delete, data: { confirm: "Tem certeza?" }, :class => "remove_item" %></div></div>'); 
-	});
-</script>

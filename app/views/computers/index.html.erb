@@ -15,12 +15,16 @@
       <% @computers.each do |computer| %>
           <tr class="fields" id="computer_item_<%= computer.id %>">
             <td class="ip"><%= computer.ip %></td>
+            <td class="dpto">
             <% @dptos.each do |d| %>
-              <td class="dpto"><%= d.abbr if computer.dpto_id == d.id %></td>  
+              <% d.abbr if computer.dpto_id == d.id %>
             <% end %>
+            </td>  
+            <td class="subdpto">
             <% @subdptos.each do |s| %>
-              <td class="subdpto"><%= s.abbr if computer.subdpto_id == s.id %></td>  
+              <%= s.abbr if computer.subdpto_id == s.id %>
             <% end %>
+            </td>
             <td class="sort"><%= computer.sort %></td>
             <td class="name"><%= computer.name %></td>
             <td class="actions"><%= link_to image_tag('edit.png'), edit_computer_path(computer), :remote => true, :title => "Editar" %>

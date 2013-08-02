@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="new_subdpto">
-    <div class="field">
-      <%= f.label :name%><br>
-      <%= f.text_field :name, :autofocus => true %>
-    </div>
-    <div class="field">
-      <%= f.label :abbr%><br>
-      <%= f.text_field :abbr%>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Subdepartamento</th>
+        <th>Sigla</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fields">
+        <td><%= f.text_field :name, :autofocus => true %></td>
+        <td><%= f.text_field :abbr %></td>
+        <td><%= f.submit "Salvar" %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

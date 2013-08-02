@@ -194,13 +194,13 @@ footer{
 	}
 }
 
-.edit_computer, .edit_equipment{
+.edit_computer, .edit_equipment, .edit_dpto, .edit_subdpto{
 	.actions{
 		display: inherit !important;
 	}
 }
 
-.edit_computer, #new_computer, .edit_equipment, #new_equipment, .edit_dptos, #new_dpto, .edit_subdptos, #new_subdpto{
+.edit_computer, #new_computer, .edit_equipment, #new_equipment, .edit_dpto, #new_dpto, .edit_subdpto, #new_subdpto{
 	width: 100%;
 	padding: 0;
 }
@@ -213,7 +213,15 @@ footer{
 	width: 780px;
 }
 
-.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment, .dptos_list, .subdptos_list, .edit_dptos, #new_dpto, .edit_subdptos, #new_subdpto{
+.dptos_list, .subdptos_list{
+	width: 390px;
+
+	.actions{
+		width: 80px !important;
+	}
+}
+
+.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment, .dptos_list, .subdptos_list, .edit_dpto, #new_dpto, .edit_subdpto, #new_subdpto{
 	float: left;
 
 	thead{

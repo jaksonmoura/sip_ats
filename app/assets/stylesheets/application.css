@@ -125,10 +125,10 @@ footer {
     width: 40px;
     text-align: center; }
 
-.edit_computer .actions, .edit_equipment .actions {
+.edit_computer .actions, .edit_equipment .actions, .edit_dpto .actions, .edit_subdpto .actions {
   display: inherit !important; }
 
-.edit_computer, #new_computer, .edit_equipment, #new_equipment, .edit_dptos, #new_dpto, .edit_subdptos, #new_subdpto {
+.edit_computer, #new_computer, .edit_equipment, #new_equipment, .edit_dpto, #new_dpto, .edit_subdpto, #new_subdpto {
   width: 100%;
   padding: 0; }
 
@@ -138,30 +138,35 @@ footer {
 .computers_list {
   width: 780px; }
 
-.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment, .dptos_list, .subdptos_list, .edit_dptos, #new_dpto, .edit_subdptos, #new_subdpto {
+.dptos_list, .subdptos_list {
+  width: 390px; }
+  .dptos_list .actions, .subdptos_list .actions {
+    width: 80px !important; }
+
+.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment, .dptos_list, .subdptos_list, .edit_dpto, #new_dpto, .edit_subdpto, #new_subdpto {
   float: left; }
-  .computers_list thead, .edit_computer thead, #new_computer thead, .equipments_list thead, .edit_equipment thead, #new_equipment thead, .dptos_list thead, .subdptos_list thead, .edit_dptos thead, #new_dpto thead, .edit_subdptos thead, #new_subdpto thead {
+  .computers_list thead, .edit_computer thead, #new_computer thead, .equipments_list thead, .edit_equipment thead, #new_equipment thead, .dptos_list thead, .subdptos_list thead, .edit_dpto thead, #new_dpto thead, .edit_subdpto thead, #new_subdpto thead {
     width: 100%;
     float: left; }
-    .computers_list thead th, .edit_computer thead th, #new_computer thead th, .equipments_list thead th, .edit_equipment thead th, #new_equipment thead th, .dptos_list thead th, .subdptos_list thead th, .edit_dptos thead th, #new_dpto thead th, .edit_subdptos thead th, #new_subdpto thead th {
+    .computers_list thead th, .edit_computer thead th, #new_computer thead th, .equipments_list thead th, .edit_equipment thead th, #new_equipment thead th, .dptos_list thead th, .subdptos_list thead th, .edit_dpto thead th, #new_dpto thead th, .edit_subdpto thead th, #new_subdpto thead th {
       float: left;
       width: 162px;
       text-align: center;
       margin: 0 0 -6px -1px; }
-    .computers_list thead .ip, .edit_computer thead .ip, #new_computer thead .ip, .equipments_list thead .ip, .edit_equipment thead .ip, #new_equipment thead .ip, .dptos_list thead .ip, .subdptos_list thead .ip, .edit_dptos thead .ip, #new_dpto thead .ip, .edit_subdptos thead .ip, #new_subdpto thead .ip {
+    .computers_list thead .ip, .edit_computer thead .ip, #new_computer thead .ip, .equipments_list thead .ip, .edit_equipment thead .ip, #new_equipment thead .ip, .dptos_list thead .ip, .subdptos_list thead .ip, .edit_dpto thead .ip, #new_dpto thead .ip, .edit_subdpto thead .ip, #new_subdpto thead .ip {
       width: 48px !important; }
-  .computers_list .fields div, .computers_list .fields td, .edit_computer .fields div, .edit_computer .fields td, #new_computer .fields div, #new_computer .fields td, .equipments_list .fields div, .equipments_list .fields td, .edit_equipment .fields div, .edit_equipment .fields td, #new_equipment .fields div, #new_equipment .fields td, .dptos_list .fields div, .dptos_list .fields td, .subdptos_list .fields div, .subdptos_list .fields td, .edit_dptos .fields div, .edit_dptos .fields td, #new_dpto .fields div, #new_dpto .fields td, .edit_subdptos .fields div, .edit_subdptos .fields td, #new_subdpto .fields div, #new_subdpto .fields td {
+  .computers_list .fields div, .computers_list .fields td, .edit_computer .fields div, .edit_computer .fields td, #new_computer .fields div, #new_computer .fields td, .equipments_list .fields div, .equipments_list .fields td, .edit_equipment .fields div, .edit_equipment .fields td, #new_equipment .fields div, #new_equipment .fields td, .dptos_list .fields div, .dptos_list .fields td, .subdptos_list .fields div, .subdptos_list .fields td, .edit_dpto .fields div, .edit_dpto .fields td, #new_dpto .fields div, #new_dpto .fields td, .edit_subdpto .fields div, .edit_subdpto .fields td, #new_subdpto .fields div, #new_subdpto .fields td {
     float: left;
     width: 150px;
     padding: 5px; }
-    .computers_list .fields div input, .computers_list .fields div select, .computers_list .fields td input, .computers_list .fields td select, .edit_computer .fields div input, .edit_computer .fields div select, .edit_computer .fields td input, .edit_computer .fields td select, #new_computer .fields div input, #new_computer .fields div select, #new_computer .fields td input, #new_computer .fields td select, .equipments_list .fields div input, .equipments_list .fields div select, .equipments_list .fields td input, .equipments_list .fields td select, .edit_equipment .fields div input, .edit_equipment .fields div select, .edit_equipment .fields td input, .edit_equipment .fields td select, #new_equipment .fields div input, #new_equipment .fields div select, #new_equipment .fields td input, #new_equipment .fields td select, .dptos_list .fields div input, .dptos_list .fields div select, .dptos_list .fields td input, .dptos_list .fields td select, .subdptos_list .fields div input, .subdptos_list .fields div select, .subdptos_list .fields td input, .subdptos_list .fields td select, .edit_dptos .fields div input, .edit_dptos .fields div select, .edit_dptos .fields td input, .edit_dptos .fields td select, #new_dpto .fields div input, #new_dpto .fields div select, #new_dpto .fields td input, #new_dpto .fields td select, .edit_subdptos .fields div input, .edit_subdptos .fields div select, .edit_subdptos .fields td input, .edit_subdptos .fields td select, #new_subdpto .fields div input, #new_subdpto .fields div select, #new_subdpto .fields td input, #new_subdpto .fields td select {
+    .computers_list .fields div input, .computers_list .fields div select, .computers_list .fields td input, .computers_list .fields td select, .edit_computer .fields div input, .edit_computer .fields div select, .edit_computer .fields td input, .edit_computer .fields td select, #new_computer .fields div input, #new_computer .fields div select, #new_computer .fields td input, #new_computer .fields td select, .equipments_list .fields div input, .equipments_list .fields div select, .equipments_list .fields td input, .equipments_list .fields td select, .edit_equipment .fields div input, .edit_equipment .fields div select, .edit_equipment .fields td input, .edit_equipment .fields td select, #new_equipment .fields div input, #new_equipment .fields div select, #new_equipment .fields td input, #new_equipment .fields td select, .dptos_list .fields div input, .dptos_list .fields div select, .dptos_list .fields td input, .dptos_list .fields td select, .subdptos_list .fields div input, .subdptos_list .fields div select, .subdptos_list .fields td input, .subdptos_list .fields td select, .edit_dpto .fields div input, .edit_dpto .fields div select, .edit_dpto .fields td input, .edit_dpto .fields td select, #new_dpto .fields div input, #new_dpto .fields div select, #new_dpto .fields td input, #new_dpto .fields td select, .edit_subdpto .fields div input, .edit_subdpto .fields div select, .edit_subdpto .fields td input, .edit_subdpto .fields td select, #new_subdpto .fields div input, #new_subdpto .fields div select, #new_subdpto .fields td input, #new_subdpto .fields td select {
       width: 100%;
       text-align: center; }
-  .computers_list .fields .ip, .edit_computer .fields .ip, #new_computer .fields .ip, .equipments_list .fields .ip, .edit_equipment .fields .ip, #new_equipment .fields .ip, .dptos_list .fields .ip, .subdptos_list .fields .ip, .edit_dptos .fields .ip, #new_dpto .fields .ip, .edit_subdptos .fields .ip, #new_subdpto .fields .ip {
+  .computers_list .fields .ip, .edit_computer .fields .ip, #new_computer .fields .ip, .equipments_list .fields .ip, .edit_equipment .fields .ip, #new_equipment .fields .ip, .dptos_list .fields .ip, .subdptos_list .fields .ip, .edit_dpto .fields .ip, #new_dpto .fields .ip, .edit_subdpto .fields .ip, #new_subdpto .fields .ip {
     width: 40px; }
-    .computers_list .fields .ip input, .edit_computer .fields .ip input, #new_computer .fields .ip input, .equipments_list .fields .ip input, .edit_equipment .fields .ip input, #new_equipment .fields .ip input, .dptos_list .fields .ip input, .subdptos_list .fields .ip input, .edit_dptos .fields .ip input, #new_dpto .fields .ip input, .edit_subdptos .fields .ip input, #new_subdpto .fields .ip input {
+    .computers_list .fields .ip input, .edit_computer .fields .ip input, #new_computer .fields .ip input, .equipments_list .fields .ip input, .edit_equipment .fields .ip input, #new_equipment .fields .ip input, .dptos_list .fields .ip input, .subdptos_list .fields .ip input, .edit_dpto .fields .ip input, #new_dpto .fields .ip input, .edit_subdpto .fields .ip input, #new_subdpto .fields .ip input {
       width: 40px; }
-  .computers_list .fields .actions input, .edit_computer .fields .actions input, #new_computer .fields .actions input, .equipments_list .fields .actions input, .edit_equipment .fields .actions input, #new_equipment .fields .actions input, .dptos_list .fields .actions input, .subdptos_list .fields .actions input, .edit_dptos .fields .actions input, #new_dpto .fields .actions input, .edit_subdptos .fields .actions input, #new_subdpto .fields .actions input {
+  .computers_list .fields .actions input, .edit_computer .fields .actions input, #new_computer .fields .actions input, .equipments_list .fields .actions input, .edit_equipment .fields .actions input, #new_equipment .fields .actions input, .dptos_list .fields .actions input, .subdptos_list .fields .actions input, .edit_dpto .fields .actions input, #new_dpto .fields .actions input, .edit_subdpto .fields .actions input, #new_subdpto .fields .actions input {
     width: auto; }
 
 #new_computer .fields, #new_equipment .fields {
