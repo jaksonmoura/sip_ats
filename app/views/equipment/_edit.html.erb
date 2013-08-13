@@ -25,7 +25,7 @@
 			// make a POST call and replace the content
 			var dpto = $('.equipment_dpto_id_<%= @equipment.id %> :selected').val();
 			if(dpto == "") dpto="0";
-			jQuery.get('/equipment/get_subdptos/' + dpto, function(data){
+			jQuery.get('<%= root_path %>/equipment/get_subdptos/' + dpto, function(data){
 					$(".equipment_subdpto_id_<%= @equipment.id %>").replaceWith(data);
 			})
 			return false;

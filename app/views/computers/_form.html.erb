@@ -38,7 +38,7 @@ jQuery(function($) {
     // make a POST call and replace the content
     var dpto = $('select#computer_dpto_id :selected').val();
     if(dpto == "") dpto="0";
-    jQuery.get('/computers/get_subdptos/' + dpto, function(data){
+    jQuery.get('<%= root_path %>/computers/get_subdptos/' + dpto, function(data){
         $("#computer_subdpto_id").replaceWith(data);
     })
     return false;
