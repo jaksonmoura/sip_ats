@@ -1,4 +1,5 @@
 Sip::Application.routes.draw do
+  scope '/sip' do
   get "home/index"
   resources :equipment
 
@@ -17,7 +18,9 @@ Sip::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  
+    root 'home#index'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -77,4 +77,7 @@ Sip::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Setting root to subdrectory
+  config.relative_url_root = "/sip"
 end

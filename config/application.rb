@@ -9,6 +9,7 @@ Bundler.require(:default, Rails.env)
 module Sip
   class Application < Rails::Application
     config.assets.enabled = true
+    config.assets.prefix = "/sip/assets"
     config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
     config.assets.precompile += %w( .svg .eot .woff .ttf )
     # Settings in config/environments/* take precedence over those specified here.
