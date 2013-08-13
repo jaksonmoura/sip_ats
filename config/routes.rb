@@ -1,18 +1,18 @@
 Sip::Application.routes.draw do
   scope '/sip' do
-  get "home/index"
-  resources :equipment
+    get "home/index"
+    resources :equipment
 
-  resources :users
+    resources :users
 
-  resources :computers
+    resources :computers
 
-  resources :dptos do
-    resources :subdptos
-  end
+    resources :dptos do
+      resources :subdptos
+    end
 
-  get 'equipment/get_subdptos/:id', :controller=>'equipment', :action => 'get_subdptos'
-  get 'computers/get_subdptos/:id', :controller=>'computers', :action => 'get_subdptos'
+    get 'equipment/get_subdptos/:id', :controller=>'equipment', :action => 'get_subdptos'
+    get 'computers/get_subdptos/:id', :controller=>'computers', :action => 'get_subdptos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
