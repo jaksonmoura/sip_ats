@@ -2,6 +2,11 @@
   font-family: "Open Sans";
   src: url("OpenSans-Regular.ttf"), url("OpenSans-Bold.ttf"), url("OpenSans-BoldItalic.ttf"), url("OpenSans-Italic.ttf"), url("OpenSans-Light.ttf"), url("OpenSans-LightItalic.ttf"), url("OpenSans-SemiBold.ttf"), url("OpenSans-SemiBoldItalic.ttf"); }
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 body, html {
   margin: 0;
   padding: 0; }
@@ -64,7 +69,7 @@ footer {
     width: 100%;
     float: left; }
     .computers_list thead th, .equipments_list thead th, .dptos_list thead th, .subdptos_list thead th {
-      width: 150px;
+      width: 160px;
       text-align: center;
       float: left;
       background: #0b61a4;
@@ -76,18 +81,18 @@ footer {
     .computers_list thead th:last-child, .equipments_list thead th:last-child, .dptos_list thead th:last-child, .subdptos_list thead th:last-child {
       border-radius: 0 3px 0 0; }
     .computers_list thead .ip, .equipments_list thead .ip, .dptos_list thead .ip, .subdptos_list thead .ip {
-      width: 42px !important; }
+      width: 40px !important; }
   .computers_list .fields, .equipments_list .fields, .dptos_list .fields, .subdptos_list .fields {
     float: left;
     width: 90%;
     cursor: pointer; }
     .computers_list .fields td, .equipments_list .fields td, .dptos_list .fields td, .subdptos_list .fields td {
       padding: 5px;
-      width: 150px;
+      width: 160px;
       float: left;
       background: #fff;
       text-align: center;
-      height: 20px; }
+      height: 30px; }
     .computers_list .fields .ip, .equipments_list .fields .ip, .dptos_list .fields .ip, .subdptos_list .fields .ip {
       width: 40px; }
   .computers_list .fields td, .equipments_list .fields td, .dptos_list .fields td, .subdptos_list .fields td {
@@ -99,7 +104,7 @@ footer {
   .computers_list .fields .actions, .computers_list .fields:nth-child(2n+1) .actions, .equipments_list .fields .actions, .equipments_list .fields:nth-child(2n+1) .actions, .dptos_list .fields .actions, .dptos_list .fields:nth-child(2n+1) .actions, .subdptos_list .fields .actions, .subdptos_list .fields:nth-child(2n+1) .actions {
     float: right;
     position: inherit;
-    margin: -30px -50px 0 0;
+    margin: -1px -45px 0 0;
     padding: 3px 0;
     width: 60px;
     border-radius: 5px;
@@ -112,9 +117,9 @@ footer {
       margin: 2px 0 0 9px; }
   .computers_list .fields:nth-child(2n+1) td, .equipments_list .fields:nth-child(2n+1) td, .dptos_list .fields:nth-child(2n+1) td, .subdptos_list .fields:nth-child(2n+1) td {
     padding: 5px;
-    width: 150px;
+    width: 160px;
     float: left;
-    background: #e0f1ff; }
+    background: #5aa1db; }
   .computers_list .fields:nth-child(2n+1) td:first-child, .equipments_list .fields:nth-child(2n+1) td:first-child, .dptos_list .fields:nth-child(2n+1) td:first-child, .subdptos_list .fields:nth-child(2n+1) td:first-child {
     border-left-width: 0; }
   .computers_list .fields:nth-child(2n+1) td:nth-last-child(2), .equipments_list .fields:nth-child(2n+1) td:nth-last-child(2), .dptos_list .fields:nth-child(2n+1) td:nth-last-child(2), .subdptos_list .fields:nth-child(2n+1) td:nth-last-child(2) {
@@ -152,12 +157,12 @@ footer {
       float: left;
       width: 162px;
       text-align: center;
-      margin: 0 0 -6px -1px; }
+      margin: 0 0 -6px -2px; }
     .computers_list thead .ip, .edit_computer thead .ip, #new_computer thead .ip, .equipments_list thead .ip, .edit_equipment thead .ip, #new_equipment thead .ip, .dptos_list thead .ip, .subdptos_list thead .ip, .edit_dpto thead .ip, #new_dpto thead .ip, .edit_subdpto thead .ip, #new_subdpto thead .ip {
-      width: 48px !important; }
+      width: 40px !important; }
   .computers_list .fields div, .computers_list .fields td, .edit_computer .fields div, .edit_computer .fields td, #new_computer .fields div, #new_computer .fields td, .equipments_list .fields div, .equipments_list .fields td, .edit_equipment .fields div, .edit_equipment .fields td, #new_equipment .fields div, #new_equipment .fields td, .dptos_list .fields div, .dptos_list .fields td, .subdptos_list .fields div, .subdptos_list .fields td, .edit_dpto .fields div, .edit_dpto .fields td, #new_dpto .fields div, #new_dpto .fields td, .edit_subdpto .fields div, .edit_subdpto .fields td, #new_subdpto .fields div, #new_subdpto .fields td {
     float: left;
-    width: 150px;
+    width: 160px;
     padding: 5px; }
     .computers_list .fields div input, .computers_list .fields div select, .computers_list .fields td input, .computers_list .fields td select, .edit_computer .fields div input, .edit_computer .fields div select, .edit_computer .fields td input, .edit_computer .fields td select, #new_computer .fields div input, #new_computer .fields div select, #new_computer .fields td input, #new_computer .fields td select, .equipments_list .fields div input, .equipments_list .fields div select, .equipments_list .fields td input, .equipments_list .fields td select, .edit_equipment .fields div input, .edit_equipment .fields div select, .edit_equipment .fields td input, .edit_equipment .fields td select, #new_equipment .fields div input, #new_equipment .fields div select, #new_equipment .fields td input, #new_equipment .fields td select, .dptos_list .fields div input, .dptos_list .fields div select, .dptos_list .fields td input, .dptos_list .fields td select, .subdptos_list .fields div input, .subdptos_list .fields div select, .subdptos_list .fields td input, .subdptos_list .fields td select, .edit_dpto .fields div input, .edit_dpto .fields div select, .edit_dpto .fields td input, .edit_dpto .fields td select, #new_dpto .fields div input, #new_dpto .fields div select, #new_dpto .fields td input, #new_dpto .fields td select, .edit_subdpto .fields div input, .edit_subdpto .fields div select, .edit_subdpto .fields td input, .edit_subdpto .fields td select, #new_subdpto .fields div input, #new_subdpto .fields div select, #new_subdpto .fields td input, #new_subdpto .fields td select {
       width: 100%;
@@ -204,10 +209,10 @@ footer {
   text-align: center; }
   .home_links li {
     display: inline-block;
-    width: 130px;
-    margin: 0 35px 10px 0; }
+    width: 160px;
+    margin: 0 5px 10px 0; }
   .home_links a {
-    clear: both;
+    float: left;
     display: inline-block;
     text-decoration: none;
     color: #fff;
@@ -218,4 +223,9 @@ footer {
     text-align: center;
     border-radius: 1px; }
   .home_links a:hover {
-    background: #5aa1db; }
+    background: #5aa1db;
+    margin-top: -2px;
+    border-bottom: 6px solid #0b61a4; }
+  .home_links a:active {
+    margin-top: 2px;
+    border-bottom: 2px solid #0b61a4; }
