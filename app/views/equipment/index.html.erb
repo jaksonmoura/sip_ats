@@ -16,7 +16,7 @@
             <td class="ip"><%= equipment.ip %></td>
             <td class="dpto">
               <% @dptos.each do |d| %>
-                <% d.abbr if equipment.dpto_id == d.id %>
+                <%= d.abbr if equipment.dpto_id == d.id %>
               <% end %>
               </td>  
               <td class="subdpto">
