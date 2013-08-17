@@ -23,6 +23,10 @@ class ComputersController < ApplicationController
     @dptos = Dpto.all
     @subdptos = Subdpto.all
 
+    # Formatting values
+    @computer.sort.capitalize!
+    @computer.name.capitalize!
+
     respond_to do |format|
       if @computer.save
         format.js
@@ -43,6 +47,9 @@ class ComputersController < ApplicationController
     @subdptos = Subdpto.all
     respond_to do |format|
       if @computer.update(computer_params)
+        # Formatting values
+        @computer.sort.capitalize!
+        @computer.name.capitalize!
         format.js
         format.html { redirect_to @computer, notice: 'Computer was successfully updated.' }
         format.json { head :no_content }

@@ -27,6 +27,10 @@ class DptosController < ApplicationController
   def create
     @dpto = Dpto.new(dpto_params)
 
+    # Formatting values
+    @dpto.name.capitalize!
+    @dpto.abbr.upcase!
+
     respond_to do |format|
       if @dpto.save
         format.js
@@ -46,6 +50,9 @@ class DptosController < ApplicationController
     @dpto = Dpto.find_by_id(params[:id])
     respond_to do |format|
       if @dpto.update(dpto_params)
+        # Formatting values
+        @dpto.name.capitalize!
+        @dpto.abbr.upcase
         format.js { render 'update.js.erb' }
         format.html { redirect_to @dpto, notice: 'Dpto was successfully updated.' }
         format.json { head :no_content }

@@ -33,6 +33,9 @@ class EquipmentController < ApplicationController
     @dptos = Dpto.all
     @subdptos = Subdpto.all
 
+    # Formatting values
+    @equipment.sort.capitalize!
+
     respond_to do |format|
       if @equipment.save
         format.js
@@ -53,6 +56,8 @@ class EquipmentController < ApplicationController
     @subdptos = Subdpto.all
     respond_to do |format|
       if @equipment.update(equipment_params)
+        # Formatting values
+        @equipment.sort.capitalize!
         format.js { render 'update.js.erb'}
         format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
         format.json { head :no_content }

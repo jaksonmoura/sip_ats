@@ -33,6 +33,10 @@ class SubdptosController < ApplicationController
     @dpto = Dpto.find_by_id(params[:dpto_id])
     @subdpto = @dpto.subdptos.new(subdpto_params)
 
+    # Formatting values
+    @subdpto.name.capitalize!
+    @subdpto.abbr.upcase!
+
     respond_to do |format|
       if @subdpto.save
         format.js
@@ -51,6 +55,9 @@ class SubdptosController < ApplicationController
   def update
     respond_to do |format|
       if @subdpto.update(subdpto_params)
+        # Formatting values
+        @subdpto.name.capitalize!
+        @subdpto.abbr.upcase!
         format.js
         format.html { redirect_to @subdpto, notice: 'Subdpto was successfully updated.' }
         format.json { head :no_content }
