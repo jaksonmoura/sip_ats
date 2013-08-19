@@ -1,6 +1,8 @@
 Sip::Application.routes.draw do
   scope '/sip' do
+
     get "home/index"
+
     resources :equipment
 
     resources :users

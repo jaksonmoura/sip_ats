@@ -1,6 +1,7 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user
+  
   # GET /computers
   # GET /computers.json
   def index
