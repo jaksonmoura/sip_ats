@@ -10,16 +10,6 @@ class EquipmentController < ApplicationController
     @subdptos = Subdpto.all
   end
 
-  # GET /equipment/1
-  # GET /equipment/1.json
-  def show
-  end
-
-  # GET /equipment/new
-  def new
-    @equipment = Equipment.new
-  end
-
   # GET /equipment/1/edit
   def edit
     @dptos = Dpto.all

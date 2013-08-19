@@ -8,20 +8,6 @@ class DptosController < ApplicationController
     @dpto = Dpto.new
   end
 
-  # GET /dptos/1
-  # GET /dptos/1.json
-  def show
-  end
-
-  # GET /dptos/new
-  def new
-    @dpto = Dpto.new
-  end
-
-  # GET /dptos/1/edit
-  def edit
-  end
-
   # POST /dptos
   # POST /dptos.json
   def create

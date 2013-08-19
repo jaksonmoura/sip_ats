@@ -9,11 +9,6 @@ class SubdptosController < ApplicationController
     @subdpto = @dpto.subdptos.new
   end
 
-  # GET /subdptos/1
-  # GET /subdptos/1.json
-  def show
-  end
-
   # GET /subdptos/new
   def new
     @dpto = Dpto.find_by_id(params[:dpto_id])
