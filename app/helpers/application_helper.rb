@@ -1,5 +1,5 @@
 module ApplicationHelper
   def logged_in?
-     !request.authorization.nil?
+     !session[:logado].nil?
    end
 end

@@ -18,6 +18,10 @@
       <%= notice %>
     </div>
   <% end %>
+  
+  <% if logged_in? %>
+    <%= link_to 'Sair', logout_path, :class => "home_logout" %>
+  <% end %>
 
 	<div class="home_container">
 	<div class="box">

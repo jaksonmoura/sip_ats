@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     
   def create  
     if authenticated?  
-      session[:user_id] = @user.id  
+      session[:logado] = 1  
       redirect_to root_url, notice: "Logado!"
     else
       render action: 'new', notice: 'Nome de usuário ou senha inválidos.'
@@ -14,15 +14,15 @@ class SessionsController < ApplicationController
   end  
   
   def destroy  
-    session[:user_id] = nil
-    redirect_to root_url, notice: 'Você saiu.'
+    session[:logado] = nil
+    redirect_to login_path, notice: 'Você saiu.'
   end
 
   private
 
   def authenticated?
-    @user = User.find_by_username(params[:username])
-    @user && @user.authenticate(params[:password])
+    @user, @password = params[:username], params[:password]
+    @user == USER && @password == PASSWORD
   end
 
 end

@@ -1,2 +1,2 @@
-USER_ID   = "admin"
+USER      = "admin"
 PASSWORD  = "AdminTI2312"
