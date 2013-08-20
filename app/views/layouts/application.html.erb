@@ -11,6 +11,13 @@
 <body>
 
 <div class="wrapper">
+  
+  <% unless notice.blank? %>
+  <script>$(document).ready(function(){$('.notice').hide().slideDown().delay(5000).slideUp();});</script>
+    <div class="notice">
+      <%= notice %>
+    </div>
+  <% end %>
 
 	<header>
 		<div class="container">
@@ -30,6 +37,5 @@
 		</div>
 	</footer>
 </div>
-
 </body>
 </html>

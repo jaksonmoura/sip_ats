@@ -1,6 +1,5 @@
 class DptosController < ApplicationController
   before_action :set_dpto, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user
 
   # GET /dptos
   # GET /dptos.json

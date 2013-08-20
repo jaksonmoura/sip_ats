@@ -62,6 +62,19 @@ footer {
   footer p, footer a {
     color: #a1a1a1; }
 
+.notice {
+  width: 40%;
+  position: fixed;
+  top: 0;
+  left: 30%;
+  background: #5aa1db;
+  border-bottom: 3px solid #0b61a4;
+  border-radius: 0 0 3px 3px;
+  color: #fff;
+  height: 40px;
+  padding: 10px 0;
+  text-align: center; }
+
 .computers_list, .equipments_list, .dptos_list, .subdptos_list {
   float: left;
   padding: 0; }
@@ -176,6 +189,46 @@ footer {
 
 #new_computer .fields, #new_equipment .fields {
   background: none; }
+
+.login_container {
+  width: 50%;
+  margin: 0 auto; }
+  .login_container h1 {
+    text-align: center;
+    color: #3f92d2;
+    padding: 0;
+    margin: -30px 0 60px 0; }
+  .login_container label {
+    float: left;
+    min-width: 80px;
+    margin-top: 5px; }
+  .login_container .field {
+    width: 100%;
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #666; }
+  .login_container .field input {
+    width: 82%;
+    font-size: 18px;
+    color: #666;
+    padding: 5px 0;
+    border: 1px solid #ccc; }
+  .login_container .actions {
+    float: right; }
+  .login_container .actions input {
+    float: left;
+    text-decoration: none;
+    color: #fff;
+    width: 150px;
+    background: #3f92d2;
+    border: none;
+    font-size: 16px;
+    border-bottom: 4px solid #0b61a4;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 1px; }
+  .login_container .box {
+    margin: 80px auto; }
 
 .home_logo {
   text-align: center;

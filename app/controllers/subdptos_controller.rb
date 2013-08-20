@@ -1,6 +1,5 @@
 class SubdptosController < ApplicationController
   before_action :set_subdpto, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user
 
   # GET /subdptos
   # GET /subdptos.json

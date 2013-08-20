@@ -7,6 +7,9 @@ Sip::Application.routes.draw do
 
     resources :users
 
+    match '/login' => 'sessions#create', via: [:get, :post]
+    match '/logout' => 'sessions#destroy', via: [:get, :post]
+
     resources :computers
 
     resources :dptos do

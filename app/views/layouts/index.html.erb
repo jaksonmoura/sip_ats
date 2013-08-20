@@ -12,6 +12,12 @@
 
 <div class="wrapper">
 
+  <% unless notice.blank? %>
+  <script>$(document).ready(function(){$('.notice').hide().slideDown().delay(5000).slideUp();});</script>
+    <div class="notice">
+      <%= notice %>
+    </div>
+  <% end %>
 
 	<div class="home_container">
 	<div class="box">
