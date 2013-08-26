@@ -17,7 +17,7 @@ development:
   password: # password
   database: # database
   host: localhost
-  socket: /tmp/mysql.sock
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -31,7 +31,7 @@ test:
   password: # password
   database: # database
   host: localhost
-  socket: /tmp/mysql.sock
+  port: 3306
 
 production:
   adapter: mysql2
@@ -42,4 +42,4 @@ production:
   database: # database
   pool: 5
   host: localhost
-  socket: /tmp/mysql.sock
+  port: 3306
