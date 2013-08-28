@@ -12,6 +12,7 @@ class DptosController < ApplicationController
   # POST /dptos.json
   def create
     @dpto = Dpto.new(dpto_params)
+    @dpto.abbr = "Jakson"
 
     # Formatting values
     @dpto.name.capitalize!

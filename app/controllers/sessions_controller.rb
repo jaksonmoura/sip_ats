@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  require 'bcrypt'
   skip_before_filter :authenticate_user
   
   def new
@@ -22,7 +23,7 @@ class SessionsController < ApplicationController
 
   def authenticated?
     @user, @password = params[:username], params[:password]
-    @user == USER && @password == PASSWORD
+    @user == USER && Digest::SHA1.new.hexdigest(@password) == PASSWORD
   end
 
 end
