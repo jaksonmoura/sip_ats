@@ -110,7 +110,7 @@ footer{
 }
 
 //  Tables
-.computers_list, .equipments_list, .dptos_list, .subdptos_list{
+.computers_list, .equipments_list{
 	float: left;
 	padding: 0;
 
@@ -216,34 +216,26 @@ footer{
 	}
 }
 
-.edit_computer, .edit_equipment, .edit_dpto, .edit_subdpto{
+.edit_computer, .edit_equipment{
 	.actions{
 		display: inherit !important;
 	}
 }
 
-.edit_computer, #new_computer, .edit_equipment, #new_equipment, .edit_dpto, #new_dpto, .edit_subdpto, #new_subdpto{
+.edit_computer, #new_computer, .edit_equipment, #new_equipment{
 	width: 100%;
 	padding: 0;
 }
 
 .equipments_list{
-	width: 600px;
+	width: 421px;
 }
 
 .computers_list{
-	width: 780px;
+	width: 600px;
 }
 
-.dptos_list, .subdptos_list{
-	width: 400px;
-
-	.actions{
-		width: 80px !important;
-	}
-}
-
-.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment, .dptos_list, .subdptos_list, .edit_dpto, #new_dpto, .edit_subdpto, #new_subdpto{
+.computers_list, .edit_computer, #new_computer, .equipments_list, .edit_equipment, #new_equipment{
 	float: left;
 
 	thead{

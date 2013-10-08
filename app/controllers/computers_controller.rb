@@ -6,22 +6,19 @@ class ComputersController < ApplicationController
   def index
     @computers = Computer.all
     @computer = Computer.new
-    @dptos = Dpto.all # Load Dptos
-    @subdptos = Subdpto.all # Load Dptos
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto") # Load Dptos # Load Dptos
   end
 
   # GET /computers/1/edit
   def edit
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
   end
 
   # POST /computers
   # POST /computers.json
   def create
     @computer = Computer.new(computer_params)
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
 
     # Formatting values
     @computer.sort.capitalize!
@@ -43,8 +40,7 @@ class ComputersController < ApplicationController
   # PATCH/PUT /computers/1
   # PATCH/PUT /computers/1.json
   def update
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
     respond_to do |format|
       if @computer.update(computer_params)
         # Formatting values
@@ -72,13 +68,6 @@ class ComputersController < ApplicationController
     end
   end
 
-  # Form select for subdptos
-  def get_subdptos
-    @dpto = Dpto.find(params[:id])
-    @subdptos = @dpto.subdptos.to_a
-    render :partial => "subdptos"
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_computer
@@ -87,7 +76,7 @@ class ComputersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def computer_params
-      params.require(:computer).permit(:dpto_id, :subdpto_id, :sort, :name, :ip)
+      params.require(:computer).permit(:dpto_id, :sort, :name, :ip)
     end
 
 end

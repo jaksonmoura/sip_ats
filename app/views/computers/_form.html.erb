@@ -14,7 +14,6 @@
     <thead>
         <th class="ip">IP</th>
         <th>Departamento</th>
-        <th>Subdepartamento</th>
         <th>Tipo</th>
         <th>Usuário</th>
         <th></th>
@@ -22,8 +21,7 @@
     <tbody>
       <tr class="fields">
         <td class="ip"><%= f.number_field :ip, :autofocus => true%></td>
-        <td class="dpto"><%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}%></td>
-        <td class="subdpot"><%= select_tag :subdpto_id, {}, :disabled => true, :id=>"computer_subdpto_id"%></td>
+        <td class="dpto"><%= f.select(:dpto_id, @dptos.map {|d| [ d['name'], d['id'] ] }, {include_blank: 'Departamento'}, required: true) %></td>
         <td class="sort"><%= f.text_field :sort %></td>
         <td class="name"><%= f.text_field :name %></td>
         <td class="actions"><%= f.submit "Salvar IP"%></td>
@@ -31,17 +29,3 @@
     </tbody>
   </table>
 <% end %>
-<script type="text/javascript">
-jQuery(function($) {
-// when the #region_id field changes
-  $("#computer_dpto_id").change(function() {
-    // make a POST call and replace the content
-    var dpto = $('select#computer_dpto_id :selected').val();
-    if(dpto == "") dpto="0";
-    jQuery.get('<%= root_path %>/computers/get_subdptos/' + dpto, function(data){
-        $("#computer_subdpto_id").replaceWith(data);
-    })
-    return false;
-  });
-})
-</script>

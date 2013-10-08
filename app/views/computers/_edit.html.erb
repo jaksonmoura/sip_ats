@@ -4,10 +4,7 @@
 			<%= f.number_field :ip, :autofocus => true%>
 		</div>
 		<div  class="dpto">
-			<%= f.select :dpto_id, @dptos.to_a.collect {|d| [d.name, d.id] }, {include_blank: true}, :class => "computer_dpto_id_#{@computer.id}"%>
-		</div>
-		<div class="subdpto">
-			<%= select_tag :subdpto_id, {}, :disabled => true,  :class => "computer_subdpto_id_#{@computer.id}"%>
+			<%= f.select(:dpto_id, @dptos.map {|d| [ d['name'], d['id'] ] }, {include_blank: 'Departamento'}, :class => "equipment_dpto_id_#{@equipment.id}") %>
 		</div>
 		<div class="sort">
 			<%= f.text_field :sort %>
@@ -22,16 +19,6 @@
 	</div>
 	<script type="text/javascript">
 	jQuery(function($) {
-	// when the #region_id field changes
-		$(".computer_dpto_id_<%= @computer.id %>").change(function() {
-			// make a POST call and replace the content
-			var dpto = $('.computer_dpto_id_<%= @computer.id %> :selected').val();
-			if(dpto == "") dpto="0";
-			jQuery.get('<%= root_path %>/computers/get_subdptos/' + dpto, function(data){
-					$(".computer_subdpto_id_<%= @computer.id %>").replaceWith(data);
-			})
-			return false;
-		});
 		// Save on enter pressed
 		$('#edit_computer_<%= @computer.id %> input').keypress(function(e){
 			if (e.which == 13) {
@@ -43,7 +30,7 @@
 		    $('#edit_computer_<%= @computer.id %>').submit();
 		});
 		$(".cancel_btn").click(function(){
-			$('#edit_computer_<%= @computer.id %>').replaceWith('<tr class="fields" id="computer_item_<%= @computer.id %>"><td class="ip"><%= @computer.ip %></td><% @dptos.each do |d| %><td><%=j d.abbr if @computer.dpto_id == d.id %></td>  <% end %><% @subdptos.each do |s| %><td><%=j s.abbr if @computer.subdpto_id == s.id %></td>  <% end %><td><%= @computer.sort %></td><td><%= @computer.name %></td><td class="actions"><%=j link_to image_tag("edit.png"), edit_computer_path(@computer), :remote => true, :title => "Editar" %><%=j link_to image_tag("delete.png"), @computer, method: :delete, data: { confirm: "Are you sure?" }, :remote => true, :title => "Deletar"%></tr>');
+			$('#edit_computer_<%= @computer.id %>').replaceWith('<tr class="fields" id="computer_item_<%= @computer.id %>"><td class="ip"><%= @computer.ip %></td><% @dptos.each do |d| %><% if @computer.dpto_id == d["id"] %><td><%=j d["abbr"] %></td><% end %><% end %><td><%=j @computer.sort %></td><td><%=j @computer.name %></td><td class="actions"><%=j link_to image_tag("edit.png"), edit_computer_path(@computer), :remote => true, :title => "Editar" %><%=j link_to image_tag("delete.png"), @computer, method: :delete, data: { confirm: "Tem certeza que vai remover?" }, :remote => true, :title => "Deletar"%></td></tr>');
 		});
 	})
 	</script>

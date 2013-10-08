@@ -6,22 +6,19 @@ class EquipmentController < ApplicationController
   def index
     @equipments = Equipment.all
     @equipment = Equipment.new
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
   end
 
   # GET /equipment/1/edit
   def edit
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
   end
 
   # POST /equipment
   # POST /equipment.json
   def create
     @equipment = Equipment.new(equipment_params)
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
 
     # Formatting values
     @equipment.sort.capitalize!
@@ -42,8 +39,7 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
-    @dptos = Dpto.all
-    @subdptos = Subdpto.all
+    @dptos = ActiveRecord::Base.connection.exec_query("SELECT * FROM dados_ats.dpto")
     respond_to do |format|
       if @equipment.update(equipment_params)
         # Formatting values
@@ -70,13 +66,6 @@ class EquipmentController < ApplicationController
     end
   end
 
-  # Form select for subdptos
-  def get_subdptos
-    @dpto = Dpto.find(params[:id])
-    @subdptos = @dpto.subdptos.to_a
-    render :partial => "subdptos"
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_equipment
@@ -85,6 +74,6 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:dpto_id, :subdpto_id, :sort, :ip)
+      params.require(:equipment).permit(:dpto_id, :sort, :ip)
     end
 end

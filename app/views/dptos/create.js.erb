@@ -1,3 +1,0 @@
-$('.dptos_list').append('<tr class="fields" id="dpto_item_<%= @dpto.id %>"><td><%= @dpto.name %></td><td><%= @dpto.abbr %></td><td class="actions"><%=j link_to image_tag("subdptos.png"), new_dpto_subdpto_path(@dpto), :title => "+ Subdpto"%><%=j link_to image_tag("edit.png"), edit_dpto_path(@dpto), :remote => true, :title => "Editar" %><%=j link_to image_tag("delete.png"), @dpto, method: :delete, data: { confirm: "Tem certeza?" }, :remote => true, :title => "Deletar" %></td></tr>');
-$('#new_dpto #dpto_name, #new_dpto #dpto_abbr').html("");
-$("#new_dpto #dpto_name").focus();

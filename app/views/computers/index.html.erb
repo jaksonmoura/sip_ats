@@ -5,7 +5,6 @@
     <tr>
       <th class="ip">IP</th>
       <th>Departamento</th>
-      <th>Subdepartamento</th>
       <th>Tipo</th>
       <th>Usuário</th>
     </tr>
@@ -17,18 +16,13 @@
             <td class="ip"><%= computer.ip %></td>
             <td class="dpto">
             <% @dptos.each do |d| %>
-              <% d.abbr if computer.dpto_id == d.id %>
+              <% d['abbr'] if computer.dpto_id == d['id'] %>
             <% end %>
             </td>  
-            <td class="subdpto">
-            <% @subdptos.each do |s| %>
-              <%= s.abbr if computer.subdpto_id == s.id %>
-            <% end %>
-            </td>
             <td class="sort"><%= computer.sort %></td>
             <td class="name"><%= computer.name %></td>
             <td class="actions"><%= link_to image_tag('edit.png'), edit_computer_path(computer), :remote => true, :title => "Editar" %>
-            <%= link_to image_tag('delete.png'), computer, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :title => "Deletar"%></td>
+            <%= link_to image_tag('delete.png'), computer, method: :delete, data: { confirm: 'Tem certeza que vai remover?' }, :remote => true, :title => "Deletar"%></td>
           </tr>
       <% end %>
   </tbody>
